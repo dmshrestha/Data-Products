@@ -1,0 +1,69 @@
+---
+title       : Coursera Slidify Project
+subtitle    : 
+author      : Dipan Man Shrestha
+job         : Civil Engineer
+framework   : revealjs        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : default      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Disease Prediction Using R
+
+1. How I have created dataset ?
+2. Cleaning and Rensing dataset ?
+3. Data Mining
+4. ML Models
+5. Results
+
+--- .class #id
+
+## Dataset
+
+  The data set was manually created.
+  Intervied 50 different people.
+  ```{r, echo=2}
+    load("/home/tensor/Documents/Tutorials/R/Ninth/data/disease.RData")
+    head(d1)
+  ```
+
+--- .class #id
+
+## Data Cleaning
+  
+  Empty values were removed.
+  
+  Disease columns was casted as factor.
+```{r}
+    colnames(d1)
+```
+
+--- .class #id
+
+## Ml Algorithms
+
+  Using tm library stop word was removed.
+  
+  Frequency table was built based on the occurance of words.
+  
+  Also TF-ITF was calculated.
+
+```{r}
+    library(tm)
+```
+
+--- .class #id
+
+## Visualization
+Using diamonds dataset for visualization 
+
+as my data points are not good.
+```{r, echo=5}
+library(ggplot2)
+data(diamonds)
+diamonds<-diamonds[sample(1:nrow(diamonds),2000),]
+ggplot(diamonds, aes(carat, price))+geom_point(color="firebrick")
+```
